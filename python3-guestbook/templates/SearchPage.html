@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1039678730594-214stbfdoetq158507q8n3sdpio7nld7.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    
+
+    <center>
+    <b> <font size="+2">AppEngine Video Game</font></b>
+    </center>
+
+    <hr><br>
+
+    <div class="container">
+      <!-- [START greetings] -->
+      
+
+
+      {% if flag == 0 %}
+        Error: at least one field must be entered
+      {% else %}
+        {% if greetings|length > 0 %}
+          {% for greeting in greetings %}
+          
+              {{ greeting.title }}&nbsp;&nbsp;&nbsp;&nbsp; {{greeting.rating}}  &nbsp;&nbsp;&nbsp;&nbsp;{{greeting.platform}} &nbsp;&nbsp;&nbsp;&nbsp; {{greeting.developer}}  &nbsp;&nbsp;&nbsp;&nbsp;{{greeting.year_release}} &nbsp;&nbsp;&nbsp;&nbsp;
+
+              <br>
+          {% endfor %}
+
+        {% else %}
+        No video games match your search&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <br>
+      
+        {% endif %}
+      {% endif %}
+      <!-- [END greetings] -->
+
+      <hr>
+
+      <form action="" method="post">
+
+  Title: 
+        <input value="{{ title }}" size="40" name="title" placeholder="{{ key_name }}"> <br><br>
+        
+  ESRB Rating:
+        <input value="{{ rating }}" size="40" name="rating"> <br><br>
+  Game Platform:
+        <input value="{{ platform }}" size="40" name="platform"> <br><br>
+  Developer:
+        <input value="{{ developer }}" size="40" name="developer"> <br><br>
+  Year of Release:
+        
+        <input value="{{ year_release }}" size="40" name="year_release"> <br><br>
+  Genre:
+        <input value="{{genre}}" size="40" name="genre"><br><br>
+        <input type="submit" class="btn btn-large btn-primary" value="Search">
+
+        <p><a href="/">Return to main page</a></p>
+      </form>
+
+      
+  </div>
+
+  </body>
+</html>
+

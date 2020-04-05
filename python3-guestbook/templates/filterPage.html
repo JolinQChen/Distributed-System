@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1039678730594-214stbfdoetq158507q8n3sdpio7nld7.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+  
+            <center>
+    <b> <font size="+2">AppEngine Video Game</font></b>
+    </center>
+
+    <hr><br>
+
+    <div class="container">
+      <!-- [START greetings] -->
+      
+
+
+      {% if greetings|length > 0 %}
+        {% for greeting in greetings %}
+        
+            {{ greeting.title }}&nbsp;&nbsp;&nbsp;&nbsp; {{greeting.rating}}  &nbsp;&nbsp;&nbsp;&nbsp;{{greeting.platform}} &nbsp;&nbsp;&nbsp;&nbsp; {{greeting.developer}}  &nbsp;&nbsp;&nbsp;&nbsp;{{greeting.year_release}} &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <br>
+        {% endfor %}
+
+      {% else %}
+      No video games match your search&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <br>
+      
+      {% endif %}
+      <!-- [END greetings] -->
+
+      <hr>
+
+
+    
+    
+
+  </body>
+</html>

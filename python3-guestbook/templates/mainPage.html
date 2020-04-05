@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1039678730594-214stbfdoetq158507q8n3sdpio7nld7.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <script>
+      function onSignIn(googleUser) {
+        console.log("Sign On In Progress")
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+        //Set default HTTP Request Header
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:8080/login');
+        xhr.send(id_token);
+      }
+    </script>
+    <p><a  href="{{url_for('filterPage', genre = 'action')}}">Browse Action Games</a ></p >
+    <p><a href="{{url_for('filterPage', genre = 'platform')}}">Browse Platform Games</a></p>
+    <p><a href="{{url_for('filterPage', genre = 'puzzle')}}">Browse Puzzle games</a></p>
+    <p><a href="{{url_for('filterPage', genre = 'role-play')}}">Browse Role-Play games</a></p>
+    <p><a href="{{url_for('filterPage', genre = 'sports')}}">Browse Sports games</a></p>
+    <p><a href="SearchPage.html">Search for video games</a></p>
+    <p><a href="index.html">Enter new video game info</a></p>
+
+  </body>
+</html>
