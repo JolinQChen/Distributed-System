@@ -1,4 +1,7 @@
-# 1
+# 1 Python3-Guestbook: demo for online-video games booking
+Framework: Flask
+this is the source code to be deployed on Google Cloud following Google Cloud instructions. To run on local host, please change the address to localhost:8080.
+The deployed application can be found at: https://qiaoling-chen-dist-sys-hw1.appspot.com/
 
 # 2 Analyze Purchasing Data with Google Cloud Dataflow pipelines (Java)
 ## 2.1 Intro
